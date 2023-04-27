@@ -149,12 +149,16 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
+
+# vuepress build output
+.vuepress/dist
 
 # Serverless directories
 .serverless/
@@ -246,3 +250,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/git,sass,node,macos,linux,windows,vscode,sublimetext
 
 ### UOC Boilerplate ###
+dist
