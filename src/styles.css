@@ -1,0 +1,235 @@
+@import 'npm:@fortawesome/fontawesome-free/css/all.css';
+
+* {
+  box-sizing: border-box;
+}
+
+/* afegir scroll per tal de que el header fixat no molesti quan
+   s'accedeix a un enllaç de l'índex */
+html {
+  scroll-padding-top: 225px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 24px;
+  color: #351702b4;
+  background-color: #f2f4ea;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* definició de l'estil del header principal */
+.primary-header {
+  /* es defineix la posició sticky per tal de que
+     el header es mantingui sempre visible a dalt */
+  position: sticky;
+  top: 0;
+
+  /* es defineix un z-index per assegurar que cap altre element amb
+     una posició definida pugui posar-se per davant de la capçalera */
+  z-index: 5;
+
+  /* s'afegeix un petit difuminat del color de la pàgina perquè el
+     canvi entre la capçalera i l'article de la pàgina sigui més suau */
+  border-bottom: 2px solid #f2f4ea;
+  box-shadow: 0 2px 2px 1px #f2f4ea;
+
+  width: 100vw;
+  color: #f2f4ea;
+  text-align: center;
+  background-color: #6c7840;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.primary-nav {
+  display: flex;
+  flex-direction: column;
+
+  /* pels dispositius mòbils augmentem una mica l'amplada */
+  width: 60vw * 1.25;
+  margin: 1rem auto;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  justify-content: flex-start;
+}
+
+.footer {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-top: 2rem;
+  width: 100vw;
+  color: #f2f4ea;
+  text-align: center;
+  background-color: #6c7840;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footer__font {
+  width: 60vw * 1.4;
+  margin: 0 auto;
+}
+
+/* definim els colors i estil dels links de la pàgina
+   i dels que tenen un fons (capçalera i peu de pàgina principalment) */
+.text-link {
+  color: #89ab0d;
+  text-decoration: none;
+}
+.text-link:visited {
+  color: #7c9a0c;
+}
+.text-link:hover,
+.text-link:active,
+.text-link:focus {
+  color: #a8c832;
+}
+.colored-background-link {
+  color: #f2f4ea;
+  text-decoration: none;
+}
+.colored-background-link:visited {
+  color: #f2f4ea;
+}
+.colored-background-link:hover,
+.colored-background-link:active,
+.colored-background-link:focus {
+  color: #cad2ab;
+}
+
+.img-figures {
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+
+.img-figures__image {
+  max-width: 100%;
+}
+
+.img-figures__captions {
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.vid-figures {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin: 0 auto;
+}
+
+.vid-figures__vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.vid-figures__caption {
+  height: 3.5rem;
+  position: absolute;
+  bottom: -3.7rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* definim l'estil de totes les llistes que hi ha a la pàgina */
+.list--no-style {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* pels dispositius mòbils molt petits, reduïm la mida del títol principal  */
+@media screen and (max-width: 350px) {
+  .primary-header__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  /* modifiquem la mida de l'scroll per ajustar-lo a una capçalera més prima */
+  html {
+    scroll-padding-top: 170px;
+  }
+
+  body {
+    width: 60vw;
+    text-align: left;
+  }
+
+  .primary-nav {
+    width: 60vw;
+    flex-flow: row wrap;
+  }
+
+  /* afegim un punt entre els elements de la llista de l'índex de navegació */
+  .primary-nav > li:not(:last-child)::after {
+    content: ' ·\00a0';
+  }
+
+  .img-figures__image {
+    width: 60vw;
+  }
+
+  /* ajustem l'ampla perquè s'adapti a diferents mides de pantalla */
+  .footer__font {
+    width: calc(60vw * 1.25 - 10%);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    scroll-padding-top: 150px;
+  }
+
+  body {
+    width: 60vw * 0.8;
+  }
+
+  .img-figures__image {
+    width: 60vw * 0.8;
+    max-width: 850px;
+  }
+
+  .vid-figures {
+    width: revert;
+    height: revert;
+    padding-bottom: revert;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .vid-figures__vid {
+    position: revert;
+    width: revert;
+    height: revert;
+    min-height: 270px;
+    min-width: 480px;
+  }
+
+  .vid-figures__caption {
+    position: revert;
+  }
+
+  .footer__font {
+    max-width: 850px;
+  }
+}
