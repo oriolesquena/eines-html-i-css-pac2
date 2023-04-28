@@ -116,6 +116,19 @@ body {
   color: #cad2ab;
 }
 
+.title-link {
+  color: #351702b4;
+  text-decoration: none;
+}
+.title-link:visited {
+  color: #351702b4;
+}
+.title-link:hover,
+.title-link:active,
+.title-link:focus {
+  color: #823f0eb4;
+}
+
 .img-figures {
   margin: 0;
   margin-bottom: 0.8rem;
