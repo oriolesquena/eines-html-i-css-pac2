@@ -157,6 +157,38 @@ body {
   list-style-type: none;
 }
 
+.img-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.img-galeria__figure {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.img-galeria__link {
+  text-decoration: none;
+}
+
+.img-galeria__element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-galeria__caption {
+  position: relative;
+  bottom: 1.9rem;
+  text-align: center;
+  background-color: rgba(50, 75, 36, 0.75);
+  color: #f2f4ea;
+}
+
 /* pels dispositius mòbils molt petits, reduïm la mida del títol principal  */
 @media screen and (max-width: 350px) {
   .primary-header__title {
@@ -227,6 +259,15 @@ body {
 
   .vid-figures__caption {
     position: revert;
+  }
+
+  .img-galeria__caption {
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+  }
+
+  .img-galeria__figure:hover .img-galeria__caption {
+    opacity: 1;
   }
 
   .footer__font {
