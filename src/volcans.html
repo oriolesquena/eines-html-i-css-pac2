@@ -19,12 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      type="image/svg"
-      sizes="32x32"
-      href="./img/volcano-solid.svg"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/volcano.png" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
     </style>
@@ -32,29 +27,12 @@
   </head>
   <body>
     <header class="primary-header">
+      <div class="logo"></div>
       <h1 class="primary-header__title">
         <a class="colored-background-link" href="index.html"
           >Parc Natural de la Zona Volcànica de la Garrotxa
-          <span class="fa-solid fa-volcano"> </span
-        ></a>
+        </a>
       </h1>
-      <nav>
-        <ul class="primary-nav list--no-style">
-          <li>
-            <a class="colored-background-link" href="historia.html"
-              >Història i formació</a
-            >
-          </li>
-          <li>
-            <a class="colored-background-link" href="volcans.html"
-              ><strong>Volcans i llocs d'interès</strong></a
-            >
-          </li>
-          <li>
-            <a class="colored-background-link" href="links.html">Enllaços</a>
-          </li>
-        </ul>
-      </nav>
     </header>
     <main class="main">
       <article>
@@ -108,7 +86,9 @@
             <figure class="img-galeria__figure">
               <a class="img-galeria__link" href="sta-margarida.html">
                 <img
-                  src="https://es.turismegarrotxa.com/img-apartat-3200-1800/volca-santa-margarida-1-1920_001.jpg"
+                  srcset="././img/sta-margarida-500px.webp 500w"
+                  sizes="500px"
+                  src="./img/sta-margarida-500px.jpg"
                   alt="Volcà Santa Margarida"
                   class="img-galeria__element"
                 />
@@ -120,7 +100,9 @@
             <figure class="img-galeria__figure">
               <a class="img-galeria__link" href="castellfollit.html">
                 <img
-                  src="https://es.turismegarrotxa.com/img-municipi-3200-1800/castellfollit-segittur_001.jpg"
+                  srcset="./img/castellfollit-500px.webp 500w"
+                  sizes="500px"
+                  src="./img/castellfollit-500px.jpg"
                   alt="Castellfollit de la Roca"
                   class="img-galeria__element"
                 />
@@ -132,7 +114,9 @@
             <figure class="img-galeria__figure">
               <a class="img-galeria__link" href="">
                 <img
-                  src="https://es.turismegarrotxa.com/img-apartat-3200-1800/croscat-1_001.jpg"
+                  srcset="././img/croscat2-500px.webp 500w"
+                  sizes="500px"
+                  src="./img/croscat2-500px.jpg"
                   alt="Volcà Croscat"
                   class="img-galeria__element"
                 />
@@ -144,7 +128,9 @@
             <figure class="img-galeria__figure">
               <a class="img-galeria__link" href="">
                 <img
-                  src="https://es.turismegarrotxa.com/img-apartat-1200-630/volca-montsacopa-dron-2019_001.jpg"
+                  srcset="././img/montsacopa-500px.webp 500w"
+                  sizes="500px"
+                  src="./img/montsacopa-500px.jpg"
                   alt="Volcà Montsacopa"
                   class="img-galeria__element"
                 />
@@ -156,7 +142,9 @@
             <figure class="img-galeria__figure">
               <a class="img-galeria__link" href="">
                 <img
-                  src="https://img.naturaki.com/63951fagedajorda.jpg?auto=compress,format&h=550&s=3a8c053de1de5bfab6bba74300a78f06"
+                  srcset="././img/fageda-500px.webp 500w"
+                  sizes="500px"
+                  src="./img/fageda-500px.jpg"
                   alt="La Fageda d'en Jordà"
                   class="img-galeria__element"
                 />
@@ -170,12 +158,46 @@
       </article>
     </main>
     <footer class="footer">
-      <div class="footer__font">
-        <p>
-          Elaborat per Oriol Esquena Calm per a la PAC1 de l'assignatura Eines
-          HTML i CSS del màster de Desenvolupament de Llocs i Aplicacions Web de
-          la Universitat Oberta de Catalunya.
-        </p>
+      <div class="footer--logo"></div>
+      <nav class="footer--nav">
+        <ul class="footer--nav-menu list--no-style">
+          <li>
+            <a class="colored-background-link" href="index.html">Portada</a>
+          </li>
+          <li>
+            <a class="colored-background-link" href="historia.html"
+              >Història i formació</a
+            >
+          </li>
+          <li>
+            <a class="colored-background-link" href="volcans.html"
+              ><strong>Volcans i llocs d'interès</strong></a
+            >
+          </li>
+          <li>
+            <a class="colored-background-link" href="links.html">Enllaços</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer--xarxes-socials">
+        <a
+          class="colored-background-link"
+          href="https://instagram.com/pnzvg"
+          target="_blank"
+          ><span class="fa-brands fa-instagram"></span
+        ></a>
+        <a
+          class="colored-background-link"
+          href="https://twitter.com/pnzvg"
+          target="_blank"
+          ><span class="fa-brands fa-twitter"></span
+        ></a>
+        <a
+          class="colored-background-link"
+          href="https://facebook.com/pnzvg"
+          target="_blank"
+          ><span class="fa-brands fa-facebook"></span
+        ></a>
       </div>
     </footer>
     <!-- script type="module" src="./app.js"></!-->
