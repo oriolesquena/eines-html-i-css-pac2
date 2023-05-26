@@ -1,154 +1,76 @@
-Eines HTML i CSS -- PAC 1 -- Documentació - Fet per Oriol Esquena (oesquena@uoc.edu)
+Eines HTML i CSS -- PAC 2 -- Documentació - Fet per Oriol Esquena (oesquena@uoc.edu)
 
-## ENLLAÇOS REPOSITORI I PUBLICACIÓ
+**ENLLAÇOS REPOSITORI I PUBLICACIÓ**
 
-El codi s'ha publicat a GitHub, al següent enllaç:
-<https://github.com/oriolesquena/eines-html-i-css-pac1>
+El codi s'ha publicat a GitHub, al següent enllaç: [https://github.com/oriolesquena/eines-html-i-css-pac2](https://github.com/oriolesquena/eines-html-i-css-pac2)
 
-La publicació s'ha fet amb Netlify i s'ha publicat en el següent enllaç:
-<https://lustrous-eclair-11fd16.netlify.app/index.html>
+La publicació s'ha fet amb Netlify i s'ha publicat en el següent enllaç: [https://dainty-licorice-850b4d.netlify.app/index.html](https://dainty-licorice-850b4d.netlify.app/index.html)
 
-## PROCÉS DE DESENVOLUPAMENT
+**PROCÉS DE DESENVOLUPAMENT**
 
-### Creació del boilerplate
+El primer pas per iniciar aquesta pràctica ha estat crear un nou repositori utilitzant com a base el que ja s'havia creat per la PAC1.
 
-Els primers passos per poder iniciar la pràctica han estat la creació
-d\'un *boilerplate* basat en *Parcel* amb els requisits indicats en el
-mòdul 2. Els passos per fer-ho han estat els següents:
+D'aquesta manera ja es té el repositori local connectat al GitHub i cada vegada que es facin canvis i es vulgui guardar, fent un push, ja quedarà guardat al GitHub.
 
--   Crear un arxiu package.json executant la comanda: npm init --yes
+**Instal·lació de dependències**
 
--   Instal·lar *Parcel* amb la comanda: npm install \--save-dev parcel
+Ja de l'anterior PAC es tenia instal·lada la dependència FontAwesome, que s'ha mantingut per aquest projecte, i s'ha instal·lat Sharp, que és una eina per a transformació, processament i optimització d'imatges, amb la comanda: npm install sharp i llavors s'ha creat un fitxer sharp.config.jsonon s'han especificat les característiques de qualitat de les imatges del projecte.
 
--   Instal·lar RimRaf amb la comanda: npm install \--save-dev rimraf
-    npm-run-all
+**Compilació per la producció**
 
--   Modificar les línies de start i build del fitxer package.json amb el
-    codi:
+Per tal que el projecte web sigui visible per tothom i no només des de l'entorn de desenvolupament local, s'ha penjat en un servidor web.
 
-    -   \"start\": \"npm-run-all clean parcel:dev\",
+Per fer-ho, s'ha creat un compte al proveïdor de servidors Netlify i a continuació s'ha vinculat aquest compte amb el repositori de GitHub. A continuació, s'ha determinat la comanda de _build_: npm run build, i la carpeta destí: dist. Fet això, s'ha fet un "_Deploy"_ i s'ha activat el "_Continuous Deployment"_ de forma que cada vegada que es fa un pusha la branca enllaçada del GitHub, Netlify fa un _"Deploy"_ automàticament.
 
-    -   \"build\": \"npm-run-all clean parcel:build\"
+D'aquesta manera ens assegurem que sempre tenim publicada la última versió del codi del projecte web.
 
--   Afegir la línia: \"browserslist\": \"\> 0.5%, last 2 versions, not
-    dead\" per tal de donar compatibilitat al lloc web compilat.
+**DISSENY I DESENVOLUPAMENT**
 
-Totes aquestes comandes d'instal·lació, afegeixen línies al package.json
-i fitxers a la carpeta node_modules. D'aquesta forma, si es vol editar
-el projecte des d'un altre ordinador, només cal fer un npm install per
-tenir-ho tot en ordre, ja que llavors s'instal·la tot el que
-s'especifica en el fitxer package.json.
+Partint ja d'un projecte creat, el primer que s'ha fet ha estat adaptar la capçalera per tal que hi hagués un logotip com es demanava. Així que s'ha dissenyat el logotip (senzill i ràpid) basat en la idea que és un volcà vist des del cel, i per tant s'observa el con i el cràter. El disseny s'ha fet amb Canva i s'ha guardat el fitxer amb SVG i sense fons. Llavors s'ha establert en la capçalera i el peu, però a través del CSS, com a imatge de _background_. Principalment per dos motius: un, ja que en no ser una imatge que aporti informació, sinó que és decorativa, no cal establir-la amb HTML. I el segon motiu és que en ser una imatge en SVG, és a dir vectorial, no depèn de diferents resolucions, ja que sempre ocupa el mateix i per tant no és necessari establir amb l'HTML quina cal que descarregui el navegador en cada situació.
 
-Un cop seguits aquests passos, amb un primer codi d'HTML i CSS molt
-senzill, s'ha fet la prova d'executar la comanda: npm run build, per
-veure si compilava sense errors, i així ha estat.
+També se li ha aplicat una petita animació en l'estat de _hover_ per tal de donar animació i moviment a la pàgina.
 
-A partir d'aquí, s'ha executat la comanda: npm run start, que permet
-compilar i veure el projecte en un entorn local (http://localhost:1234)
-i accedir-hi així també des d'altres dispositius que estiguin en la
-mateixa xarxa Wi-Fi. Fet que permet ja treballar correctament en el
-desenvolupament del projecte.
+A continuació s'ha editat la imatge que apareix a la pàgina de portada amb _clip-path_ per tal de que simulés la silueta d'un volcà i així ambientés la temàtica. Per fer el _clip-path_ s'ha utilitzat l'eina [Clippy](https://bennettfeely.com/clippy/), que permet ajustar la forma i aconseguir directament el codi en CSS.
 
-S'ha de dir que en aquest punt, la comanda npm run start, no em
-funcionava correctament si ho feia des del terminal de Linux (WSL), en
-canvi des del de Windows (Powershell), no donava cap problema.
+Pel que fa a aquesta imatge, i com és amb la majoria d'imatges de la pàgina, s'ha creat un element \<_picture_\> i s'ha ajustat el codi per tal de que a diferents resolucions s'usi una imatge de diferent mida i pes. A més a més, que per defecte s'utilitzi el format WebP i en cas que no sigui possible el JPEG. Això s'ha aconseguit fàcilment gràcies al Sharp. I tant sols implementant una petita _query_ (exemple: /img/croscat-1200px.jpg **?as=webp&width=400** amb negreta la _query_) al final de l'enllaç de la imatge, es pot transformar en la mida i el format desitjat.
 
-També cal tenir en compte que de bones a primeres no podia accedir a
-http://localhost:1234 des d'altres dispositius. Però s'ha solucionat
-desactivant el tallafocs de Windows en els moments en què s'ha
-necessitat accedir-hi.
+Això s'ha aplicat també a les imatges de la resta de pàgines.
 
-### Creació del repositori
+Pel que fa a les imatges de la pàgina de detall, hi ha una imatge destacada on s'ha utilitzat la gestió de la direcció d'art, retallant-la per tal de focalitzar l'objectiu i que aquest es visualitzi més bé en pantalles petits com mòbils.
 
-Un cop creat el *boilerplate* amb el nom eines-html-i-css-pac1. A
-continuació, seguint les instruccions de GitHub de [com afegir un codi
-guardat en local a un repositori
-personal](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-project-to-github-without-github-cli)
-s'ha creat un repositori nou al GitHub personal, s'ha creat una branca
-master del codi guardat en local a la carpeta eines-html-i-css-pac1,
-s'ha fet un git add i un git commit, s'ha afegit la URL per el
-repositori remot (git remote add origin \<REMOTE_URL\>) i finalment s'ha
-fet un git push origin main.
+S'ha afegit una altra imatge en la pàgina de detall de format SVG i afegida amb CSS a través del _background_. S'ha ajustat per tal que la mida de la imatge s'adapti a la mida del dispositiu. En el cas de dispositius força petits (mòbils i tablets molt petites) s'ha optat per no mostrar la imatge ja que ocuparia massa espai i és una imatge decorativa.
 
-D'aquesta manera ja es té el repositori local connectat al GitHub i cada
-vegada que es facin canvis i es vulgui guardar, fent un push, ja quedarà
-guardat al GitHub.
+Pel que fa a la pàgina de categoria, ha estat senzill ja que en la PAC anterior ja s'havia decidit crear una galeria amb imatges en miniatura de les pàgines de detall. Senzillament s'han ajustat les imatges per tal de que siguin amb format WebP per defecte i només s'ha donat la opció d'una mida ja que s'ha fet que el _grid_ no pugui ser més gran que la dimensió màxima de la imatge bàsica i així no cal tenir tres imatges diferents per diferents mides de dispositius.
 
-### Instal·lació de dependències
+Una de les que ha portat més feina ha estat l'animació de la pàgina de presentació (Història i formació) on s'ha creat un SVG amb Figma i a continuació s'ha animat en CSS. S'ha decidit crear un volcà que simuli que està en fase d'explosió.
 
-Abans de començar a desenvolupar el codi, també s'ha aprofitat per
-instal·lar una nova dependència al projecte, la FontAwesome. Per fer-ho
-s'executa la comanda npm install \--save \@fortawesome/fontawesome-free.
-Aleshores s'instal·la la dependència a la carpeta node_modules i
-s'afegeix com a dependència al fitxer package.json.
+S'ha usat Figma perquè permet agrupar els elements i posar-los un _id_ d'atribut que facilitarà moltíssim l'animació en CSS.
 
-### Compilació per la producció
+De bones a primeres, s'ha inserit directament el codi SVG al HTML i s'ha animat amb CSS des del fitxer principal de CSS. El problema però ha estat que un cop fet el _build_ el HTML que es generava, obviava els _id_ del fitxer SVG i això feia que no es mostrés l'animació. Així que després d'investigar i observar que altres han tingut un problema semblant, s'ha optat per guardar el CSS dins el mateix fitxer SVG i llavors només haver d'enllaçar el fitxer al HTML com una imatge qualsevol. Un cop fet això, l'animació es visualitza correctament i sense problemes.
 
-Per tal que el projecte web sigui visible per tothom i no només des de
-l'entorn de desenvolupament local, s'ha penjat en un servidor web.
+El que si que, igual com amb les imatges de decoració de la pàgina de detall, aquesta animació no es mostra en dispositius petits ja que ocupa força espai a la pàgina i no aporta informació.
 
-Per fer-ho, s'ha creat un compte al proveïdor de servidors Netlify i a
-continuació s'ha vinculat aquest compte amb el repositori de GitHub. A
-continuació, s'ha determinat la comanda de *build*: npm run build, i la
-carpeta destí: dist. Fet això, s'ha fet un "*Deploy"* i s'ha activat el
-"*Continuous Deployment"* de forma que cada vegada que es fa un push a
-la branca enllaçada del GitHub, Netlify fa un *"Deploy"* automàticament.
+Fet això la pàgina estava força enllestida. S'ha repassat que complís amb els requisits establerts de WCAG i de validació i també s'ha comprovat que la mida de les imatges que es descarrega el navegador és l'adequada.
 
-D'aquesta manera ens assegurem que sempre tenim publicada la última
-versió del codi del projecte web.
+S'ha observat que en utilitzar Sharp, les imatges convertides a WebP no redueixen tant el pes, però en canvi si que es carreguen més ràpid. Per exemple s'ha fet una prova on primer s'ha convertit una imatge a WebP amb un conversor en línia i s'ha executat el codi amb aquesta imatge. La imatge original en JPEG ocupava 194 kB, i un cop convertida 97 kB. Però el temps de càrrega a la pàgina era de 12-13 ms. Mentre que amb la imatge convertida per Sharp, el pes final de la imatge descarregada pel navegador era de 156 kB, però el temps de càrrega era inferior, rondant els 6-7 ms. És a dir la meitat!
 
-## DISSENY I DESENVOLUPAMENT
+Vists els resultats s'ha optat per convertir les imatges amb Sharp ja que tot i que pesen un xic més, són pesos molt ínfims i petits (abans de fer la PAC algunes de les imatges de la PAC anterior pesaven 1,1 MB!) i per tant val la pena escurçar el temps de càrrega.
 
-Per tal de dissenyar i desenvolupar el projecte, el primer ha estat
-escollir un lloc d'interès de la meva localitat, per poder plantejar què
-es volia posar a la web i com. Un cop escollit, s'ha desenvolupat la
-idea i la distribució de la informació, i s'ha començat a escriure el
-codi HTML per tal de definir l'esquelet de la pàgina. La informació que
-hi apareix s'ha extret principalment de la
-[Viquipèdia](https://ca.wikipedia.org/wiki/Parc_Natural_de_la_Zona_Volc%C3%A0nica_de_la_Garrotxa)
-i de la pàgina de [Turisme
-Garrotxa](https://ca.turismegarrotxa.com/territori-i-natura/parc-natural-i-espais-protegits/parc-natural-de-la-zona-volcanica-de-la-garrotxa/).
+**Llista d'imatges optimitzades i pesos:**
 
-L'estructura que segueix la pàgina és tenir una pàgina d'inici o portada
-amb una imatge i una breu explicació general de la pàgina.
+| **Imatge** | **Pes en JPEG** | **WebP (1200px)** | **WebP (800px)** | **WebP (500px)** |
+| --- | --- | --- | --- | --- |
+| castellfollit2-1200px | 433 kB | 224 kB | 107 kB | 44.5 kB |
+| castellfollit-500px-cropped | 207 kB | - | - | 115 kB |
+| castellfollit-1200px | 544 kB | 305 kB | 138 kB | 54.7 kB |
+| croscat2-1200px | 313 kB | - | - | 33.3 kB |
+| croscat-1200px | 308 kB | 194 kB | 91.6 kB | 25.7 kB |
+| fageda-1200px | 544 kB | - | - | 71 kB |
+| montsacopa-1200px | 217 kB | - | - | 25 kB |
+| sta-margarida2-1200px | 370 kB | 176 kB | 76.8 kB | 30.2 kB |
+| sta-margarida-500px-cropped | 107 kB | - | - | 44.4 kB |
+| sta-margarida-1200px | 263 kB | 101 kB | 51 kB | 23.8 kB |
 
-Després tenim una pàgina de presentació i més explicació del parc, amb
-la seva història i formació.
+Com podem veure en aquesta taula la reducció de pesos és important i veiem clarament que un dispositiu mòbil estalviaria una gran quantitat de dades descarregant la imatge de només 500px i en format WebP. Fet que demostra que és útil i important tenir en compte el factor de la resolució i els pesos de les imatges per tenir una web ràpida i eficient de carregar, així com d'estalviar dades als usuaris d'aquesta.
 
-També trobem una pàgina que conté una llista de llocs d'interès, que
-s'avindria amb la pàgina de categoria que es demana per la pràctica.
-Dins d'aquesta, trobem dues pàgines detall amb informació més específica
-sobre cadascun d'aquests llocs d'interès (se n'han creat dues com a
-exemple, els últims tres llocs de la llista no tenen pàgina ja que no
-aporta res a nivell de novetat en l'HTML i/o el CSS).
-
-I finalment tenim la pàgina d'enllaços, que conté els links de les
-diferents fonts d'informació, d'imatge i de vídeo utilitzades pel
-desenvolupament del projecte.
-
-Un cop amb la base de l'HTML creada, s'ha anat donant forma a l'estil
-amb CSS. S'ha enfocat amb l'estil *mobile first* ja que és el que es
-recomanava a l'assignatura anterior d'HTML i CSS. També, abans de
-començar a escriure el codi de CSS, es va decidir una paleta de colors i
-un estil a seguir, que combinen amb els colors de terra i natura que
-envolten el Parc Natural de la Zona Volcànica de la Garrotxa (tema
-escollit pel projecte).
-
-Al principi d'escriure l'HTML ja s'havien anat definint classes pensades
-pels estils CSS. Tot i així, durant l'escriptura de codi del CSS s'han
-hagut de canviar i ajustar algunes classes per tal de que el codi fos
-més eficient i fidel a la guia.
-
-De cares a la *responsiveness* de la pàgina, com s'ha partit del disseny
-*mobile first* s'ha intentat ja que moltes coses fossin adaptables a
-totes les mides de pantalla i dispositius. Pel que no podia ser així
-però, s'han definit unes *media queries* per tal de redefinir l'estil en
-dispositius com tablets i també per ordinadors (pantalles més grans en
-general). Fent un bon planteig de *responsiveness* però, s'ha pogut
-estalviar força codi en les *media queries* quedant només allò que és
-essencialment diferent en diferents dispositius.
-
-Tot el codi CSS està comentat per tal de facilitar l'entesa d'aquest.
-Els punts més obvis, com per exemple el color del text o els marges no
-estan comentats, ja que se suposa que qualsevol que entengui una mica de
-CSS comprèn què significa.
+Pel que fa a l'HTML és molt similar al de la PAC anterior i força senzill de comprendre. Pel que fa al CSS, hi ha força més codi ja que per estilitzar els SVG i les imatges i els títols, és necessari. Tot el codi CSS està comentat per tal de facilitar l'entesa d'aquest. Els punts més obvis, com per exemple el color del text o els marges no estan comentats, ja que se suposa que qualsevol que entengui una mica de CSS comprèn què significa.
