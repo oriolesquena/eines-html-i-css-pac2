@@ -61,7 +61,7 @@ body {
   justify-content: center;
   width: 100vw;
   color: #f2f4ea;
-  background-color: #6c7840;
+  background-color: #66723b;
   text-align: left;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -78,7 +78,7 @@ body {
 /* Menú de navegació principal: Mentre que el títol
    de la capçalera s'amaga, el menú es manté visible*/
 .nav {
-  background-color: #6c7840;
+  background-color: #66723b;
   width: 100vw;
   margin-top: -1rem;
   padding-top: 1rem;
@@ -114,7 +114,7 @@ body {
   width: 100vw;
   color: #f2f4ea;
   text-align: center;
-  background-color: #6c7840;
+  background-color: #66723b;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -138,16 +138,16 @@ body {
    dels que tenen un fons (capçalera i peu de pàgina 
    principalment) i dels títols en el text */
 .text-link {
-  color: #89ab0d;
+  color: #607807;
   text-decoration: none;
 }
 .text-link:visited {
-  color: #7c9a0c;
+  color: #607807;
 }
 .text-link:hover,
 .text-link:active,
 .text-link:focus {
-  color: #a8c832;
+  color: #97b52b;
 }
 .colored-background-link {
   color: #f2f4ea;
