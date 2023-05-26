@@ -29,6 +29,23 @@ body {
   margin: auto;
 }
 
+.logo:hover {
+  animation: rotate360 1s ease-in-out;
+}
+
+@keyframes rotate360 {
+  0% {
+    opacity: 1;
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: center;
+    transform: rotate(360deg);
+  }
+}
+
 /* definició de l'estil del header principal */
 .primary-header {
   display: flex;
@@ -225,6 +242,10 @@ diferents imatges i vídeos de la pàgina*/
   list-style-type: none;
 }
 
+#svg-volcano {
+  display: none;
+}
+
 /* pels dispositius mòbils molt petits, reduïm la mida del títol principal  */
 @media screen and (max-width: 350px) {
   .primary-header__title {
@@ -298,7 +319,7 @@ diferents imatges i vídeos de la pàgina*/
   }
 }
 
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 780px) {
   .decorative-img {
     float: left;
     position: relative;
@@ -317,6 +338,157 @@ diferents imatges i vídeos de la pàgina*/
 
   .sta-margarida {
     background: url('/src/img/sta-margarida-ermita.svg') 0 / contain no-repeat;
+  }
+
+  #svg-volcano {
+    display: block;
+    float: right;
+    position: relative;
+    top: -5vw;
+    margin-bottom: -9vw;
+    width: 20vw;
+    height: 25vw;
+    max-width: 332px;
+    max-height: 415px;
+  }
+
+  #central-big-drops {
+    animation: drop-up 2s ease-in-out infinite;
+  }
+  #right-big-drops {
+    animation: drop-up-right 1.5s ease-in-out infinite;
+  }
+  #left-top-drops {
+    animation: drop-up-left 2.5s ease-in-out infinite;
+  }
+  #right-top-drops {
+    animation: drop-right 1.5s ease-in infinite;
+  }
+  #right-bottom-drops {
+    animation: drop-down-right 2s ease-in-out infinite;
+  }
+  #left-big-drops {
+    animation: drop-left 2s ease-in-out infinite;
+  }
+  #left-bottom-drops {
+    animation: drop-down-left 1.5s ease-in-out infinite;
+  }
+  #main-explosion {
+    animation: explode 4s ease-in-out infinite;
+  }
+
+  @keyframes drop-up {
+    00% {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-5%);
+    }
+  }
+
+  @keyframes drop-up-right {
+    00% {
+      opacity: 0;
+      transform: translate(-10%, 10%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(5%, -5%);
+    }
+  }
+
+  @keyframes drop-up-left {
+    00% {
+      opacity: 0;
+      transform: translate(10%, 10%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-5%, -5%);
+    }
+  }
+
+  @keyframes drop-left {
+    00% {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes drop-right {
+    00% {
+      opacity: 0;
+      transform: translateX(-20%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(00%);
+    }
+  }
+
+  @keyframes drop-down-left {
+    00% {
+      opacity: 0;
+      transform: translate(0%, 0%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-5%, 5%);
+    }
+  }
+
+  @keyframes drop-down-right {
+    00% {
+      opacity: 0;
+      transform: translate(0%, 0%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(5%, 5%);
+    }
+  }
+
+  @keyframes explode {
+    0% {
+      opacity: 0;
+      transform-origin: center;
+      transform: scale(0.5, 0.5);
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform-origin: center;
+      transform: scale(0.5, 0.5);
+    }
   }
 }
 
@@ -385,5 +557,10 @@ diferents imatges i vídeos de la pàgina*/
 
   .img-galeria__figure:hover .img-galeria__caption {
     opacity: 1;
+  }
+
+  #svg-volcano {
+    float: right;
+    position: relative;
   }
 }
