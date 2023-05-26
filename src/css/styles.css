@@ -22,6 +22,7 @@ body {
   height: 100%;
 }
 
+/* Afegir la imatge del logo com a background ja que només és decorativa */
 .logo {
   min-width: 80px;
   min-height: 80px;
@@ -29,14 +30,21 @@ body {
   margin: auto;
 }
 
+/* Afegir animació a la imatge, fent que giri 360 graus quan 
+   passem  el ratolí per sobre */
 .logo:hover {
   animation: rotate360 1s ease-in-out;
 }
 
+/* Creació de l'animació */
 @keyframes rotate360 {
   0% {
     opacity: 1;
+
+    /* Origen del gir de la imatge */
     transform-origin: center;
+
+    /* Rotació de la imatge */
     transform: rotate(0deg);
   }
   100% {
@@ -46,7 +54,7 @@ body {
   }
 }
 
-/* definició de l'estil del header principal */
+/* Definició de l'estil del header principal */
 .primary-header {
   display: flex;
   flex-direction: row;
@@ -65,6 +73,24 @@ body {
   line-height: 2rem;
   text-transform: uppercase;
   margin: 1rem 0.5rem;
+}
+
+.nav {
+  background-color: #6c7840;
+  width: 100vw;
+  margin-top: -1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  border-bottom: 2px solid #f2f4ea;
+  box-shadow: 0 2px 2px 0px #f2f4ea;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #f2f4ea;
 }
 
 .main {
@@ -89,6 +115,7 @@ body {
   padding-bottom: 1rem;
 }
 
+/* Igual que el logo de la capçalera, però més petit */
 .footer--logo {
   min-width: 50px;
   min-height: 50px;
@@ -96,14 +123,14 @@ body {
   margin: auto;
 }
 
-.footer--nav-menu {
+.nav-menu {
   display: flex;
   flex-direction: column;
   margin: auto;
   justify-content: center;
 }
 
-/* definim els colors i estil dels links de la pàgina,
+/* Definim els colors i estil dels links de la pàgina,
    dels que tenen un fons (capçalera i peu de pàgina 
    principalment) i dels títols en el text */
 .text-link {
@@ -144,8 +171,8 @@ body {
   color: #823f0eb4;
 }
 
-/* definició de l'estil, mida i posició de les
-diferents imatges i vídeos de la pàgina*/
+/* Definició de l'estil, mida i posició de les
+   diferents imatges i vídeos de la pàgina*/
 .img-figures {
   margin: 0;
   margin-bottom: 0.8rem;
@@ -155,6 +182,7 @@ diferents imatges i vídeos de la pàgina*/
   width: 100%;
 }
 
+/* Imatge tallada en forma de volcà amb clip-path */
 .img-figures__image--clipped {
   width: 100%;
   clip-path: polygon(
@@ -175,6 +203,7 @@ diferents imatges i vídeos de la pàgina*/
   line-height: 1.2;
 }
 
+/* Definició de les característiques dels vídeos embed de YouTube */
 .vid-figures {
   position: relative;
   width: 100%;
@@ -203,7 +232,7 @@ diferents imatges i vídeos de la pàgina*/
   line-height: 1.2;
 }
 
-/* per les imatges de la galeria es defineix un grid */
+/* Per les imatges de la galeria es defineix un grid */
 .img-galeria {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -236,17 +265,18 @@ diferents imatges i vídeos de la pàgina*/
   color: #f2f4ea;
 }
 
-/* definim l'estil de totes les llistes que hi ha a la pàgina */
+/* Definim l'estil de totes les llistes que hi ha a la pàgina */
 .list--no-style {
   padding-left: 0;
   list-style-type: none;
 }
 
+/* En dispositius mòbils, no volem que es vegi el volcà animat ja que ocupa massa espai */
 #svg-volcano {
   display: none;
 }
 
-/* pels dispositius mòbils molt petits, reduïm la mida del títol principal  */
+/* Pels dispositius mòbils molt petits, reduïm la mida del títol principal  */
 @media screen and (max-width: 350px) {
   .primary-header__title {
     font-size: 1.2rem;
@@ -255,7 +285,7 @@ diferents imatges i vídeos de la pàgina*/
 }
 
 @media screen and (min-width: 560px) {
-  /* modifiquem la mida de l'scroll per ajustar-lo a una capçalera més prima */
+  /* Modifiquem la mida de l'scroll per ajustar-lo a una capçalera més prima */
   html {
     scroll-padding-top: 170px;
   }
@@ -265,6 +295,7 @@ diferents imatges i vídeos de la pàgina*/
     text-align: left;
   }
 
+  /* Adaptem el logo a la mida de la capçalera */
   .logo {
     background-size: contain;
     width: calc(20px + 7vw);
@@ -281,6 +312,7 @@ diferents imatges i vídeos de la pàgina*/
     padding-bottom: 1rem;
   }
 
+  /* Adaptem el títol a la mida de la capçalera */
   .primary-header__title {
     width: 75%;
     font-size: calc(1rem + 2vw);
@@ -291,6 +323,7 @@ diferents imatges i vídeos de la pàgina*/
     margin-right: 0;
   }
 
+  /* Posem el footer en fila en comptes de en columna */
   .footer {
     flex-direction: row;
     justify-content: space-between;
@@ -319,6 +352,8 @@ diferents imatges i vídeos de la pàgina*/
   }
 }
 
+/* La imatge decorativa de les pàgines de detall i el volcà animat
+   apareixen a partir d'aquesta mida de pantalla ja que sinó ocupen massa */
 @media screen and (min-width: 780px) {
   .decorative-img {
     float: left;
@@ -352,6 +387,7 @@ diferents imatges i vídeos de la pàgina*/
     max-height: 415px;
   }
 
+  /* Definició de què ha de fer cada element de l'SVG */
   #central-big-drops {
     animation: drop-up 2s ease-in-out infinite;
   }
@@ -377,6 +413,8 @@ diferents imatges i vídeos de la pàgina*/
     animation: explode 4s ease-in-out infinite;
   }
 
+  /* Definició de les animacions: principalment moviments
+     verticals, laterals o mixtes */
   @keyframes drop-up {
     00% {
       opacity: 0;
@@ -492,6 +530,8 @@ diferents imatges i vídeos de la pàgina*/
   }
 }
 
+/* Per pantalles grans o de PC, principalment
+   serveix per ajustar mides d'amplada */
 @media screen and (min-width: 1200px) {
   html {
     scroll-padding-top: 150px;
@@ -521,13 +561,13 @@ diferents imatges i vídeos de la pàgina*/
     gap: 50px;
   }
 
-  .footer--nav-menu {
+  .nav-menu {
     flex-direction: row;
     flex-flow: row wrap;
   }
 
   /* afegim un punt entre els elements de la llista de l'índex de navegació */
-  .footer--nav-menu > li:not(:last-child)::after {
+  .nav-menu > li:not(:last-child)::after {
     content: ' ·\00a0';
   }
 
@@ -557,10 +597,5 @@ diferents imatges i vídeos de la pàgina*/
 
   .img-galeria__figure:hover .img-galeria__caption {
     opacity: 1;
-  }
-
-  #svg-volcano {
-    float: right;
-    position: relative;
   }
 }
