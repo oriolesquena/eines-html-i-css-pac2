@@ -75,22 +75,26 @@ body {
   margin: 1rem 0.5rem;
 }
 
+/* Menú de navegació principal: Mentre que el títol
+   de la capçalera s'amaga, el menú es manté visible*/
 .nav {
   background-color: #6c7840;
   width: 100vw;
   margin-top: -1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #f2f4ea;
 
+  /* Fer que es mantingui visible a dalt sempre */
   position: sticky;
   top: 0;
   z-index: 5;
 
+  /* Crear un difuminat per quan es llisqui avall la pàgina*/
   border-bottom: 2px solid #f2f4ea;
   box-shadow: 0 2px 2px 0px #f2f4ea;
-  text-align: center;
-  font-size: 1.2rem;
-  color: #f2f4ea;
 }
 
 .main {
