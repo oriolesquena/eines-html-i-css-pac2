@@ -276,7 +276,7 @@ body {
 }
 
 /* En dispositius mòbils, no volem que es vegi el volcà animat ja que ocupa massa espai */
-#svg-volcano {
+.volcano-explosion {
   display: none;
 }
 
@@ -379,7 +379,7 @@ body {
     background: url('/src/img/sta-margarida-ermita.svg') 0 / contain no-repeat;
   }
 
-  #svg-volcano {
+  .volcano-explosion {
     display: block;
     float: right;
     position: relative;
@@ -389,148 +389,6 @@ body {
     height: 25vw;
     max-width: 332px;
     max-height: 415px;
-  }
-
-  /* Definició de què ha de fer cada element de l'SVG */
-  #central-big-drops {
-    animation: drop-up 2s ease-in-out infinite;
-  }
-  #right-big-drops {
-    animation: drop-up-right 1.5s ease-in-out infinite;
-  }
-  #left-top-drops {
-    animation: drop-up-left 2.5s ease-in-out infinite;
-  }
-  #right-top-drops {
-    animation: drop-right 1.5s ease-in infinite;
-  }
-  #right-bottom-drops {
-    animation: drop-down-right 2s ease-in-out infinite;
-  }
-  #left-big-drops {
-    animation: drop-left 2s ease-in-out infinite;
-  }
-  #left-bottom-drops {
-    animation: drop-down-left 1.5s ease-in-out infinite;
-  }
-  #main-explosion {
-    animation: explode 4s ease-in-out infinite;
-  }
-
-  /* Definició de les animacions: principalment moviments
-     verticals, laterals o mixtes */
-  @keyframes drop-up {
-    00% {
-      opacity: 0;
-      transform: translateY(10%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-5%);
-    }
-  }
-
-  @keyframes drop-up-right {
-    00% {
-      opacity: 0;
-      transform: translate(-10%, 10%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translate(5%, -5%);
-    }
-  }
-
-  @keyframes drop-up-left {
-    00% {
-      opacity: 0;
-      transform: translate(10%, 10%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-5%, -5%);
-    }
-  }
-
-  @keyframes drop-left {
-    00% {
-      opacity: 0;
-      transform: translateX(20%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(0%);
-    }
-  }
-
-  @keyframes drop-right {
-    00% {
-      opacity: 0;
-      transform: translateX(-20%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(00%);
-    }
-  }
-
-  @keyframes drop-down-left {
-    00% {
-      opacity: 0;
-      transform: translate(0%, 0%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-5%, 5%);
-    }
-  }
-
-  @keyframes drop-down-right {
-    00% {
-      opacity: 0;
-      transform: translate(0%, 0%);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translate(5%, 5%);
-    }
-  }
-
-  @keyframes explode {
-    0% {
-      opacity: 0;
-      transform-origin: center;
-      transform: scale(0.5, 0.5);
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 0;
-      transform-origin: center;
-      transform: scale(0.5, 0.5);
-    }
   }
 }
 
